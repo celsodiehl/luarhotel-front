@@ -54,7 +54,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="service-card">
-                    <img src="./assets/images/parking.JPG" alt="Parking" />
+                    <img src="./assets/images/parking1.JPG" alt="Parking" />
                     <div className="service-details">
                         <h3 className="service-title">Estacionamento</h3>
                         <p className="service-description">Oferecemos estacionamento no local para sua conveniência. Consulte-nos sobre opções de manobrista, se disponíveis.</p>
