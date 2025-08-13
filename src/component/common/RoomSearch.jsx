@@ -16,13 +16,13 @@ const RoomSearch = ({ handleSearchResult }) => {
                 const types = await ApiService.getRoomTypes();
                 setRoomTypes(types);
             } catch (error) {
-                console.error('Error fetching room types:', error.message);
+                console.error('Erro ao buscar tipos de quartos:', error.message);
             }
         };
         fetchRoomTypes();
     }, []);
 
-    /**This methods is going to be used to show errors */
+    /** Método usado para mostrar erros */
     const showError = (message, timeout = 5000) => {
         setError(message);
         setTimeout(() => {
@@ -30,30 +30,30 @@ const RoomSearch = ({ handleSearchResult }) => {
         }, timeout);
     };
 
-    /**THis is going to be used to fetch avaailabe rooms from database base on seach data that'll be passed in */
+    /**Método usado para buscar quartos disponíveis com base nos dados de pesquisa que serão passados */
     const handleInternalSearch = async () => {
         if (!startDate || !endDate || !roomType) {
-            showError('Please select all fields');
+            showError('Por favor, preencha todos os campos!');
             return false;
         }
         try {
-            // Convert startDate to the desired format
+            // Converter startDate para o formato desejado
             const formattedStartDate = startDate ? startDate.toISOString().split('T')[0] : null;
             const formattedEndDate = endDate ? endDate.toISOString().split('T')[0] : null;
-            // Call the API to fetch available rooms
+            // Chama a API para buscar quartos disponíveis
             const response = await ApiService.getAvailableRoomsByDateAndType(formattedStartDate, formattedEndDate, roomType);
 
-            // Check if the response is successful
+            // Verifica se a resposta foi bem-sucedida
             if (response.statusCode === 200) {
                 if (response.roomList.length === 0) {
-                    showError('Room not currently available for this date range on the selected rom type.');
+                    showError('Quarto indisponível no momento para este intervalo de datas no tipo de quarto selecionado.');
                     return
                 }
                 handleSearchResult(response.roomList);
                 setError('');
             }
         } catch (error) {
-            showError("Unown error occured: " + error.response.data.message);
+            showError("Ocorreu um erro desconhecido: " + error.response.data.message);
         }
     };
 
@@ -61,7 +61,7 @@ const RoomSearch = ({ handleSearchResult }) => {
         <section>
             <div className="search-container">
                 <div className="search-field">
-                    <label>Check-in Date</label>
+                    <label>Data de Entrada</label>
                     <DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
@@ -70,7 +70,7 @@ const RoomSearch = ({ handleSearchResult }) => {
                     />
                 </div>
                 <div className="search-field">
-                    <label>Check-out Date</label>
+                    <label>Data de Saída</label>
                     <DatePicker
                         selected={endDate}
                         onChange={(date) => setEndDate(date)}
@@ -80,10 +80,10 @@ const RoomSearch = ({ handleSearchResult }) => {
                 </div>
 
                 <div className="search-field">
-                    <label>Room Type</label>
+                    <label>Tipo de Quarto</label>
                     <select value={roomType} onChange={(e) => setRoomType(e.target.value)}>
                         <option disabled value="">
-                            Select Room Type
+                            Selecione o tipo de quarto
                         </option>
                         {roomTypes.map((roomType) => (
                             <option key={roomType} value={roomType}>
@@ -93,7 +93,7 @@ const RoomSearch = ({ handleSearchResult }) => {
                     </select>
                 </div>
                 <button className="home-search-button" onClick={handleInternalSearch}>
-                    Search Rooms
+                    Buscar
                 </button>
             </div>
             {error && <p className="error-message">{error}</p>}

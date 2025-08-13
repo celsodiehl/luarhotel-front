@@ -11,11 +11,11 @@ const RoomResult = ({ roomSearchResults }) => {
                 <div className="room-list">
                     {roomSearchResults.map(room => (
                         <div key={room.id} className="room-list-item">
-                            <img className='room-list-item-image' src={room.roomPhotoUrl} alt={room.roomType} />
+                            <img className='room-list-item-image' src={room.photoUrl} alt={room.type} />
                             <div className="room-details">
-                                <h3>{room.roomType}</h3>
-                                <p>Price: ${room.roomPrice} / night</p>
-                                <p>Description: {room.roomDescription}</p>
+                                <h3>{room.type}</h3>
+                                <p>Preço: R$ {room.price},00 / night</p>
+                                <p>Descrição: {room.description}</p>
                             </div>
 
                             <div className='book-now-div'>

@@ -28,7 +28,6 @@ export default class ApiService {
 
     /***USERS */
 
-
     /*  Busca Todos usuários */
     static async getAllUsers() {
         const response = await axios.get(`${this.BASE_URL}/users/all`, {
@@ -43,7 +42,6 @@ export default class ApiService {
         })
         return response.data
     }
-
 
     /* Busca um usuário */
     static async getUser(userId) {
@@ -60,7 +58,6 @@ export default class ApiService {
         })
         return response.data
     }
-
 
     /* Exclui/Deleta usuário */
     static async deleteUser(userId) {
@@ -88,12 +85,11 @@ export default class ApiService {
         return result.data
     }
 
-
     /* Busca todos os quartos disponíveis por data com uma determinada data e um tipo de quarto */
     static async getAvailableRoomsByDateAndType(checkInDate, checkOutDate, type) {
         const result = await axios.get(
             `${this.BASE_URL}/rooms/available-rooms-by-date-and-type?checkInDate=${checkInDate}
-		&checkOutDate=${checkOutDate}&roomType=${type}`
+		&checkOutDate=${checkOutDate}&type=${type}`
         )
         return result.data
     }
@@ -103,11 +99,13 @@ export default class ApiService {
         const response = await axios.get(`${this.BASE_URL}/rooms/types`)
         return response.data
     }
+
     /* Busca todos os quartos */
     static async getAllRooms() {
         const result = await axios.get(`${this.BASE_URL}/rooms/all`)
         return result.data
     }
+
     /* Busca quartos por id */
     static async getRoomById(roomId) {
         const result = await axios.get(`${this.BASE_URL}/rooms/room-by-id/${roomId}`)
@@ -132,7 +130,6 @@ export default class ApiService {
         });
         return result.data;
     }
-
 
     /**BOOKING */
     /* This  saves a new booking to the databse */
@@ -167,7 +164,6 @@ export default class ApiService {
         })
         return result.data
     }
-
 
     /**AUTHENTICATION CHECKER */
     static logout() {
