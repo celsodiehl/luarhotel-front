@@ -69,9 +69,9 @@ const AllRoomsPage = () => {
 
     return (
         <div className='all-rooms'>
-            <h2>All Rooms</h2>
+            <h2>Todos quartos</h2>
             <div className='all-room-filter-div'>
-                <label>Filter by Room Type:</label>
+                <label>Busca por tipo de quarto: </label>
                 <select value={selectedRoomType} onChange={handleRoomTypeChange}>
                     <option value="">All</option>
                     {roomTypes.map((type) => (
