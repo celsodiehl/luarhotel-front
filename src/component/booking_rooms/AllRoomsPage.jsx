@@ -13,7 +13,7 @@ const AllRoomsPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [roomsPerPage] = useState(5);
 
-    // Function to handle search results
+    // Função para manipular resultados de pesquisa
     const handleSearchResult = (results) => {
         setRooms(results);
         setFilteredRooms(results);
@@ -53,7 +53,7 @@ const AllRoomsPage = () => {
         if (type === '') {
             setFilteredRooms(rooms);
         } else {
-            const filtered = rooms.filter((room) => room.roomType === type);
+            const filtered = rooms.filter((room) => room.type === type);
             setFilteredRooms(filtered);
         }
         setCurrentPage(1); // Reset to first page after filtering

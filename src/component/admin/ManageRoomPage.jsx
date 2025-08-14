@@ -63,12 +63,12 @@ const ManageRoomPage = () => {
 
     return (
         <div className='all-rooms'>
-            <h2>All Rooms</h2>
+            <h2>Todos quartos</h2>
             <div className='all-room-filter-div' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className='filter-select-div'>
                     <label>Buscar por tipo de quarto:</label>
                     <select value={selectedRoomType} onChange={handleRoomTypeChange}>
-                        <option value="">All</option>
+                        <option value="">Todos</option>
                         {roomTypes.map((type) => (
                             <option key={type} value={type}>
                                 {type}

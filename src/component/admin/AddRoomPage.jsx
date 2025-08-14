@@ -147,7 +147,7 @@ const AddRoomPage = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Room Description</label>
+                    <label>Descrição</label>
                     <textarea
                         name="description"
                         value={roomDetails.roomDescription}

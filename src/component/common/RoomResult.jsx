@@ -14,7 +14,7 @@ const RoomResult = ({ roomSearchResults }) => {
                             <img className='room-list-item-image' src={room.photoUrl} alt={room.type} />
                             <div className="room-details">
                                 <h3>{room.type}</h3>
-                                <p>Preço: R$ {room.price},00 / night</p>
+                                <p>Preço: R$ {room.price},00 / noite</p>
                                 <p>Descrição: {room.description}</p>
                             </div>
 
@@ -24,7 +24,7 @@ const RoomResult = ({ roomSearchResults }) => {
                                         className="edit-room-button"
                                         onClick={() => navigate(`/admin/edit-room/${room.id}`)} // Navigate to edit room with room ID
                                     >
-                                        Edit Room
+                                        Editar Quarto
                                     </button>
                                 ) : (
                                     <button
