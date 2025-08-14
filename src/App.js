@@ -37,7 +37,7 @@ function App() {
             <Route path='/edit-profile' element={<ProtectedRoute element={<EditProfilePage />} />} />
 
             {/* Admin Routes */}
-            <Route path='*' element={<RegisterPage/>}/>
+            <Route path='*' element={<Navigate to="/home"/>}/>
 
         </Routes>
       </div>

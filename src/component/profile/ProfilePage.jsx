@@ -11,7 +11,7 @@ const ProfilePage = () => {
         const fetchUserProfile = async () => {
             try {
                 const response = await ApiService.getUserProfile();
-                // Busa reservas de usuários usando com user ID
+                // Busca reservas de usuários usando user ID
                 const userPlusBookings = await ApiService.getUserBookings(response.user.id);
                 setUser(userPlusBookings.user)
 
